@@ -30,5 +30,5 @@ From these recommendations, we run our front end application using **streamlit**
 We only trained on a corpus of 1092 movie scripts and made some naive decisions on text processing due to computational power. For example, we limited the sentiment analysis comparison between user queries and movies to be a simple measure of distance, but this relies on the original preprocessing to be rich enough in its analysis to calculate that distance with sophistication. In the future, with more time and computational power, we could dive into that process a bit more to make sure the preprocessing of the scripts was done with advanced NLP techniques.
 
 
-To be able to download the rest of the intermediate model df and csv, please go to the link:
+To be able to download the rest of the intermediate model df and csv, including the original zip for the dataset, please go to the link:
 https://drive.google.com/drive/folders/1vYTxei_0bfMzzVEOsdYY6ejcvJ1Cf1V4?usp=sharing
