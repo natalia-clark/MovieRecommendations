@@ -8,7 +8,6 @@ Before proceeding, ensure you have the following installed:
 
 - Python (version 3.6 or higher)
 - Git (optional for cloning the repository)
-- Git LFS (for handling large files if not already installed)
 
 #### Installation Steps
 
@@ -20,14 +19,14 @@ cd MovieRecommendations
 2. Install dependencies:
 pip install -r requirements.txt
 
-3a. Set up Git LFS if not configured: https://git-lfs.com/
-``` python
-git lfs install
-git lfs pull
-```
-
-3b. Download Large Files from Google Drive (if needed)
-If Git LFS isn't functioning or you prefer an alternative method, download the large files from the Google Drive link provided in the repository's README.md at the end.
+3. Download Large Files from Google Drive (if needed)
+Download the large files from the Google Drive link provided here:
+https://drive.google.com/drive/folders/1vYTxei_0bfMzzVEOsdYY6ejcvJ1Cf1V4?usp=sharing
+Files to download:
+- dropbox-archive.zip
+- features_df.pkl
+- movie_scripts_df.pkl
+- movie_scripts.csv (if you wish to see the scripts organized)
 
 4. Run the application
 ``` python
@@ -40,7 +39,7 @@ streamlit run streamlit.py
 **Data Files:**
 - movie_scripts.csv: CSV file containing movie script data.
 - movie_scripts_df.pkl: Cleaned movie scripts from preprocessing function 
-- features_df.pkl: Extracted fatures from the preprocessed scripts using BERT
+- features_df.pkl: Extracted features from the preprocessed scripts using BERT
 - lda_model.pkl: Pickle file containing a trained LDA (Latent Dirichlet Allocation) model.
 - dropbox-archive: Folder containing the movie script raw text in a subfolder called movie_scripts
 
@@ -81,7 +80,3 @@ From these recommendations, we run our front end application using **streamlit**
 ---
 ## Further Considerations / Limitations
 We only trained on a corpus of 1092 movie scripts and made some naive decisions on text processing due to computational power. For example, we limited the sentiment analysis comparison between user queries and movies to be a simple measure of distance, but this relies on the original preprocessing to be rich enough in its analysis to calculate that distance with sophistication. In the future, with more time and computational power, we could dive into that process a bit more to make sure the preprocessing of the scripts was done with advanced NLP techniques.
-
-
-To be able to download the rest of the intermediate model df and csv, including the original zip for the dataset, please go to the link:
-https://drive.google.com/drive/folders/1vYTxei_0bfMzzVEOsdYY6ejcvJ1Cf1V4?usp=sharing
