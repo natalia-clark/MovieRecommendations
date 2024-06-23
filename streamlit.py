@@ -131,11 +131,11 @@ def main_page():
         
     st.markdown('''
     ### * Sentiment and Emotion Detection
-    Our system uses sentiment analysis to gauge the overall mood of each script and emotion detection to identify specific emotions such as happiness, sadness, excitement, and more.
+    Our system uses sentiment analysis to gauge the overall mood of each script and tokenizes the text to be able to be read by a BERT model.
 
-    ### * Keyword and Theme Extraction
-    By extracting key themes and concepts from the scripts, we can understand the core topics and messages conveyed in the movies.
-
+    ### * Topic Modeling
+    We employ Latent Dirichlet Allocation (LDA) to extract key topics and themes from the scripts, allowing us to categorize movies based on their content.
+                
     ### * Personalized Recommendations
     Based on your input—whether you're looking for a happy movie, an action-packed adventure, or a thought-provoking drama—our recommendation algorithm matches your preferences with the most suitable scripts.
 
@@ -144,15 +144,15 @@ def main_page():
     Let us know what kind of movie you’re in the mood for by selecting emotions, themes, or specific keywords.
 
     ### 2 - Script Analysis
-    Our NLP models process the scripts in our database to find movies that align with your preferences.
+    Our NLP models has already processed the scripts in our database to find movies that align with your preferences.
 
     ### 3 - Get Recommendations
-    Receive a curated list of movies with descriptions and key excerpts from their scripts to help you decide your next watch.
+    Receive a curated list of movies to help you decide your next watch.
 
     ## Explore and Discover
     Dive into the world of movies like never before with MovieScripted. Explore our recommendations, discover hidden gems, and enjoy films that truly speak to your heart.
 
-    ## Welcome to the future of movie recommendations
+    ## Welcome to the future of movie recommendations...
     ## Welcome to MovieScripted!!!
     ''')
 
@@ -215,7 +215,6 @@ def movie_recommendation_page():
 
     # Add a div for the overlay
     st.markdown('<div class="overlay"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="content-box">', unsafe_allow_html=True)
 
     st.title("Movie Recommendation System")
 
@@ -372,13 +371,7 @@ def page_4():
     - **Emotion Detection:** Develop more sophisticated emotion detection algorithms that can distinguish between subtle emotional nuances in scripts.
     - **Contextual Analysis:** Implement advanced contextual analysis to better understand the interplay between different scenes, characters, and dialogues.
     - **Theme Clustering:** Improve theme extraction and clustering techniques to identify complex and overlapping themes within scripts.
-    
-    ## Personalized User Profiles
-    Future improvements will focus on creating more personalized user profiles:
-    - **Preference Learning:** Develop systems that learn from user feedback and interactions to better understand their preferences over time.
-    - **Dynamic Recommendations:** Provide dynamic recommendations that evolve based on changes in user preferences and moods.
-    - **User-Generated Inputs:** Allow users to input specific keywords, themes, or emotions they are interested in, for even more tailored recommendations.
-    
+     
     ## Enhanced User Interface
     We plan to enhance the user interface to make the experience even more engaging and user-friendly:
     - **Interactive Visualizations:** Implement interactive visualizations that allow users to explore the emotional and thematic landscape of recommended movies.
@@ -585,28 +578,28 @@ def preprocess_scripts_advanced(scripts):
     st.markdown('''
             ```python
     def recommend_movies_with_scores(user_input, tokenizer, model, features, titles, script_sentiments):
-    # Extract features for the user query
-    user_input_features = extract_features([user_input], tokenizer, model)[0]
+        # Extract features for the user query
+        user_input_features = extract_features([user_input], tokenizer, model)[0]
     
-    # Perform sentiment analysis on the user query
-    user_sentences = sent_tokenize(user_input)
-    user_sentiments = [TextBlob(sentence).sentiment.polarity for sentence in user_sentences]
-    user_input_sentiment = sum(user_sentiments) / len(user_sentiments) if user_sentiments else 0
+        # Perform sentiment analysis on the user query
+        user_sentences = sent_tokenize(user_input)
+        user_sentiments = [TextBlob(sentence).sentiment.polarity for sentence in user_sentences]
+        user_input_sentiment = sum(user_sentiments) / len(user_sentiments) if user_sentiments else 0
     
-    # Calculate cosine similarity between user input and movie features
-    similarities = cosine_similarity([user_input_features], features)
+        # Calculate cosine similarity between user input and movie features
+        similarities = cosine_similarity([user_input_features], features)
     
-    # Calculate sentiment differences between user input and scripts
-    sentiment_differences = [abs(user_input_sentiment - sentiment) for sentiment in script_sentiments]
+        # Calculate sentiment differences between user input and scripts
+        sentiment_differences = [abs(user_input_sentiment - sentiment) for sentiment in script_sentiments]
     
-    # Combine similarity scores and sentiment differences for final scoring
-    combined_scores = similarities[0] - np.array(sentiment_differences)
+        # Combine similarity scores and sentiment differences for final scoring
+        combined_scores = similarities[0] - np.array(sentiment_differences)
     
-    # Get the top 5 recommended movies based on combined scores
-    recommended_indices = combined_scores.argsort()[-5:][::-1]
-    recommended_movies = [(titles[i], combined_scores[i]) for i in recommended_indices]
+        # Get the top 5 recommended movies based on combined scores
+        recommended_indices = combined_scores.argsort()[-5:][::-1]
+        recommended_movies = [(titles[i], combined_scores[i]) for i in recommended_indices]
     
-    return recommended_movies
+        return recommended_movies
                 ''')
 
 st.markdown('</div>', unsafe_allow_html=True)
