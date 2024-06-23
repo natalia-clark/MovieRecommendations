@@ -1,5 +1,58 @@
 # Movie Recommendation RAG System 
 
+## Installation Instructions 
+Welcome to the Movie Recommendations application! This guide will walk you through the steps to set up and run the application on your local machine.
+
+#### Prerequisites
+Before proceeding, ensure you have the following installed:
+
+- Python (version 3.6 or higher)
+- Git (optional for cloning the repository)
+- Git LFS (for handling large files if not already installed)
+
+#### Installation Steps
+
+1. Clone the Repository (if not downloaded yet):
+``` python
+git clone https://github.com/natalia-clark/MovieRecommendations.git
+cd MovieRecommendations
+```
+2. Install dependencies:
+pip install -r requirements.txt
+
+3a. Set up Git LFS if not configured: https://git-lfs.com/
+``` python
+git lfs install
+git lfs pull
+```
+
+3b. Download Large Files from Google Drive (if needed)
+If Git LFS isn't functioning or you prefer an alternative method, download the large files from the Google Drive link provided in the repository's README.md at the end.
+
+4. Run the application
+``` python
+cd MovieRecommendations
+streamlit run streamlit.py
+```
+- Note: If you prefer to look into the training, you can see the file modelB.ipynb. Otherwise, intermediate steps have been saved to be able to run the front-end application with real-time predictions.
+
+#### Additional Notes 
+**Data Files:**
+- movie_scripts.csv: CSV file containing movie script data.
+- movie_scripts_df.pkl: Cleaned movie scripts from preprocessing function 
+- features_df.pkl: Extracted fatures from the preprocessed scripts using BERT
+- lda_model.pkl: Pickle file containing a trained LDA (Latent Dirichlet Allocation) model.
+- dropbox-archive: Folder containing the movie script raw text in a subfolder called movie_scripts
+
+**Scripts/Notebooks/PDFs:**
+- modelB.py: Python script for model implementation in streamlit app.
+- streamlit.py: Streamlit script to run the application locally.
+- modelB.ipynb: Jupyter notebook for model implementation.
+- ConciseDescription_NLP.pdf: PDF document providing a concise overview of the NLP (Natural Language Processing) techniques used.
+
+This ReadME.md provides all the information necessary to run this project locally!
+
+---
 ## Introduction
 
 In this analysis, we will address a RAG problem: How can I get a movie recommendation based on the scripts of the movies?
