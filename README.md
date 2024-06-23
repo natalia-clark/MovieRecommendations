@@ -14,11 +14,11 @@ Our Basic Strategy:
 
 1. Employ a pre-trained English language model: BERT. This model is able to understand sentiments and such to classify English text.
 2. Preprocess the film text to be better prepared to be sentiment analyzed. The preprocessing of the scripts is time-consuming. Here are the basic steps:
-  2a. Tokenization: Split the script text into sentences and words.
-  2b. POS Tagging and Lemmatization: Assign parts of speech to each word and reduce them to their base forms.
-  2c. NER and Theme Extraction: Identify named entities (e.g., persons, organizations, locations) and extract themes.
-  2d. Stop Words Removal and Filtering: Remove common stop words and non-alphanumeric tokens.
-  2e. Sentiment Analysis: Analyze the sentiment of each sentence to understand the overall tone of the script.
+  - 2a. Tokenization: Split the script text into sentences and words.
+  - 2b. POS Tagging and Lemmatization: Assign parts of speech to each word and reduce them to their base forms.
+  - 2c. NER and Theme Extraction: Identify named entities (e.g., persons, organizations, locations) and extract themes.
+  - 2d. Stop Words Removal and Filtering: Remove common stop words and non-alphanumeric tokens.
+  - 2e. Sentiment Analysis: Analyze the sentiment of each sentence to understand the overall tone of the script.
 3. Generate embeddings using BERT for both the preprocessed movie scripts and the user query to capture semantic content.
 4. Measure similarity between the user query and the scripts using cosine similarity, considering both semantic content and sentiment.
 5. Recommend the most relevant movies based on the combined similarity scores.
